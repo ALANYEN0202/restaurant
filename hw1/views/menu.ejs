@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>餐廳網頁</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+  <style>
+    <%- include('../public/css/style.css')%>
+  </style>
+</head>
+
+<body>
+  <%- include('template/navbar')%>
+  <div class="menu__banner">
+    <img class="banner__menu-img" src="/images/f-title.png">
+  </div>
+  <div class="fixed__car">
+    <img class="fixed__img" src="/images/shopping-cart.png">
+  </div>
+  <section class="section">
+    <h3 class="section__title">
+      熱銷搶購中
+    </h3>
+  </section>
+  <section class="section">
+    <div class="section__menu-img">
+      <div><img src="/images/ab-01.png"></div>
+      <div><img src="/images/ab-02.png"></div>
+      <div><img src="/images/ab-03.png"></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="introduc">
+      <div class="introduc__img">
+        <img src="/images/order-ad.png">
+      </div>
+      <div class="introduc__content">
+        <div class="introduc__title">
+          在家也能輕鬆<br>
+          咬一口我們的鮮甜清爽
+        </div>
+        <div class="introduc__text">
+          <p>您再也不必受限於時間或地點，隨時隨地透過我們24小時的線上購物選購，咬一口廚房堅持以細選食材、輕盈口感，呈現食材本身的原滋原味。</p><br>
+          <p>我們將咬一口的經典菜色研發製成相應當季的包裝食品及各式精美的伴手禮盒。將剛出爐的新鮮迅速送達家人手中，也適合與更多喜愛咬一口的親朋好友分享難得的健康滋味。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div>
+      <div class="menu__title">
+        立即輕鬆選購
+      </div>
+      <img class="menu__arrow-img" src="/images/arrow.png">
+    </div>
+    <div class="menu__container">
+    <% for(const product of products ) { %>
+      <div class="meal">
+        <img class="meal__img" src="<%= product.imgurl %>">
+        <div class="meal__intro">
+          <p><%= product.productsname %> | $<%= product.prices%></p>
+        </div>
+        <div class="meal__add-btn">
+          加入購物車
+        </div>
+      </div>
+    <% } %>
+    </div>
+  </section>
+
+  <section class="section__map">
+    <div>
+      <div class="menu__title">
+        還是想要親身體會我們的服務？
+      </div>
+      <img class="menu__arrow-img" src="/images/arrow.png">
+    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.0027469618385!2d121.56235021448099!3d25.0339808444473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abb6da9c9e1f%3A0x1206bcf082fd10a6!2zMTEw5Y-w5YyX5biC5L-h576p5Y2A5L-h576p6Lev5LqU5q61N-iZnw!5e0!3m2!1szh-TW!2stw!4v1594801962374!5m2!1szh-TW!2stw" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+  </section>
+  <%- include('template/footer')%>
+</body>
+</html>

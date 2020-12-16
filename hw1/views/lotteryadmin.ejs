@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>餐廳官網</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+<style>
+  <%- include('../public/css/style.css')%>
+</style>
+</head>
+
+<body>
+  <%- include('template/adminNavbar')%>
+  <section class="game__banner">
+    <img class="game__img" src="/images/games-bn.jpg">
+    <div class="back">
+      <div class="info">
+       <% if(username) { %>
+        <div class="prize__form_container">
+        <% if(errorMessage && errorMessage.length > 0) { %>
+          <div class="error">
+            <%= errorMessage%>
+          </div>
+        <% }%>
+          <form method="POST" action="/prize_add">
+            <div class="prize">
+              獎項名稱
+              <input name="prizename">
+            </div>
+            <div class="prize">
+              圖片網址
+              <input name="imgurl">
+            </div>
+            <div class="prize">
+              獎項機率
+              <input name="chances">
+            </div>
+            <input class="prize__submit-btn" type="submit" value="新增">
+          </form>
+        </div>
+        <div class="info__title">
+          抽獎管理系統
+        </div>
+        <table rules="all" cellpadding='5'>
+          <tr>
+            <td>獎項名稱</td>
+            <td>圖片Url</td>
+            <td>機率</td>
+            <td>編輯</td>
+            <td>刪除</td>
+          </tr>
+          <% for(const lottery of lotterys) { %>
+          <tr>
+            <td><%= lottery.prizename%></td>
+            <td><%= lottery.imgurl%></td>
+            <td><%= lottery.chances%></td>
+            <% if(username === lottery.username) { %>
+            <td><a href="/update_prize/<%= lottery.id %>">編輯</a></td>
+            <td><a href="/delete_prize/<%= lottery.id %>">刪除</a></td>
+            <% } %>
+          </tr>
+          <% } %>
+        </table>
+        <% } %>
+      </div>
+    </div>
+  </section>
+  <%- include('template/footer')%>
+</body>
+</html>

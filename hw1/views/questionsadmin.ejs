@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>餐廳官網</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+<style>
+  <%- include('../public/css/style.css')%>
+</style>
+</head>
+
+<body>
+  <%- include('template/adminNavbar')%>
+  <section class="game__banner">
+    <div class="back">
+      <div class="info">
+      <% if(username) { %>
+        <div class="prize__form_container">
+          <% if(errorMessage && errorMessage.length > 0) { %>
+          <div class="error">
+            <%= errorMessage %>
+          </div>
+        <% } %>
+          <form method="POST" action="/questions_add">
+            <div class="prize">
+              問題
+              <input class="input__title" name="title">
+            </div>
+            <div class="prize">
+              回答
+              <textarea class="input__content" name="content" row="5"></textarea>
+            </div>
+            <input class="prize__submit-btn" type="submit" value="新增">
+          </form>
+        </div>
+        <div class="info__title">
+          常見問題管理系統
+        </div>
+        <table width="100%" rules="all" cellpadding='5'>
+          <tr>
+            <td>問題</td>
+            <td>回答</td>
+            <td>編輯</td>
+            <td>刪除</td>
+          </tr>
+          <% for(const question of questions) { %>
+          <tr>
+            <td><%= question.title %></td>
+            <td><%= question.content %></td>
+            <td><a href="/update_questions/<%= question.id %>">編輯</a></td>
+            <td><a href="/delete_questions/<%= question.id %>">刪除</a></td>
+          </tr>
+          <% } %>
+        </table>
+        <% } %>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

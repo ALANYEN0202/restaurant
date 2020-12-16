@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>餐廳官網</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+<style>
+  <%- include('../public/css/style.css')%>
+</style>
+</head>
+
+<body>
+  <%- include('template/adminNavbar')%>
+  <section class="game__banner">
+    <div class="back">
+      <div class="info">
+      <% if(username) { %>
+        <div class="prize__form_container">
+          <% if(errorMessage && errorMessage.length > 0) { %>
+          <div class="error">
+            <%= errorMessage %>
+          </div>
+        <% } %>
+          <form method="POST" action="/questions_update/<%= question.id %>">
+            <div class="prize">
+              問題
+              <input class="input__title" name="title" value="<%= question.title %>">
+            </div>
+            <div class="prize">
+              回答
+              <textarea class="input__content" name="content" row="5"><%= question.content %></textarea>
+            </div>
+            <input class="prize__submit-btn" type="submit" value="更新">
+          </form>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

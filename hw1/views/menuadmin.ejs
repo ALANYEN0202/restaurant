@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>餐廳官網</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+<style>
+  <%- include('../public/css/style.css')%>
+</style>
+</head>
+
+<body>
+  <%- include('template/adminNavbar')%>
+  <section class="game__banner">
+    <div class="back">
+      <div class="info">
+      <% if(username) { %>
+        <div class="prize__form_container">
+        <% if(errorMessage && errorMessage.length > 0) { %>
+          <div class="error">
+            <%= errorMessage %>
+          </div>
+        <% }%>
+          <form method="POST" action="/menu_add">
+            <div class="prize">
+              菜單名稱
+              <input name="productsname">
+            </div>
+            <div class="prize">
+              圖片網址
+              <input name="imgurl">
+            </div>
+            <div class="prize">
+              價格
+              <input name="prices">
+            </div>
+            <input class="prize__submit-btn" type="submit" value="新增">
+          </form>
+        </div>
+        <div class="info__title">
+          菜單管理系統
+        </div>
+        <table rules="all" cellpadding='5'>
+          <tr>
+            <td>菜單名稱</td>
+            <td>圖片Url</td>
+            <td>價格</td>
+            <td>編輯</td>
+            <td>刪除</td>
+          </tr>
+          <% for(const product of products) { %>
+          <tr>
+            <td><%= product.productsname %></td>
+            <td><%= product.imgurl %></td>
+            <td><%= product.prices %></td>
+            <td><a href="/update_product/<%= product.id %>">編輯</a></td>
+            <td><a href="/delete_product/<%= product.id %>">刪除</a></td>
+          </tr>
+          <% } %>
+        </table>
+        <% } %>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
