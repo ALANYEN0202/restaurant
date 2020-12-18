@@ -4,6 +4,8 @@
 
 [網站餐廳 Demo](http://restaurant_week18.mentor-4th-alan.com/)
 
+管理員帳密預設: admin
+
 用 Express ( Node.js ) 實作個人餐廳網站，藉此熟悉後端操作。
 
 ![restaurant](https://media.giphy.com/media/zyyYRDTFZ3IF3p9R1j/source.gif)
