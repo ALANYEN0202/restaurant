@@ -515,7 +515,7 @@ table {
   height: 292px;
 }
 
-.meal__intro p {
+.meal__intro  {
   color: #3f633c;
   font-size: 18px;
 }
@@ -525,6 +525,7 @@ table {
   background-color: #f1fff2;
   padding: 15px 100px;
   color: #3f633c;
+  cursor: pointer;
 }
 
 .menu__container {
@@ -569,6 +570,140 @@ table {
   padding: 10px;
   line-height: 1.2em;
   margin-top: 10px;
+}
+.null.counts {
+  background: none;
+}
+
+.counts {
+  position: absolute;
+  background: rgba(255, 0, 0, 1);
+  width: 20px;
+  height: 20px;
+  color: white;
+  text-align: center;
+}
+
+.carts__header {
+  text-align: left;
+  margin-left: 96px;
+  margin-bottom: 42px;
+  border-bottom: 1px solid #bcbcbc;
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 25px;
+}
+
+.carts__info {
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.carts__img {
+  width: 80px;
+  height: 80px;
+  margin: 20px 0px;
+}
+
+.carts__table {
+  margin: 0 auto;
+  width: 80vw;
+}
+
+.carts__title {
+  background: #efefef;
+  font-size: 16px;
+  color: #626262;
+}
+
+.number__input {
+  width: 55px;
+  text-align: right;
+}
+
+.carts__order td {
+  padding: 0px 10px;
+}
+
+.carts__count {
+  text-align: right;
+  margin-right: 10vw;
+  margin-top: 5vh;
+}
+
+.discount__text {
+  color: #f47676;
+}
+
+.carts__shipping {
+  text-align: right;
+  margin-right: 10vw;
+  margin-top: 5vh;
+}
+
+.carts__total {
+  text-align: right;
+  margin-right: 10vw;
+  margin-top: 5vh;
+  padding-bottom: 23px;
+}
+
+.carts__clear {
+  background: white;
+  border: none;
+  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+
+.carts__clear:hover {
+  background: #ff7286;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.bill__info {
+  text-align: right;
+  margin-right: 5vw;
+}
+
+.bill__input {
+  width: 80vw;
+  border: solid 1px #e2e2e2;
+  margin-left: 30px;
+  padding: 5px;
+}
+
+.bill__info:not(:first-child){
+  margin-top: 20px;
+}
+
+.bill__red-star::after{
+  content: "*";
+  color: #e74149;
+}
+
+.bill__submit {
+  position: relative;
+  left: 38vw;
+  padding: 16px 62px 15px 60px;
+  border: solid 1px #3f633c;
+  background-color: #f1fff2;
+  color: #3f633c;
+  font-size: 16px;
+  margin-top: 53px;
+  cursor: pointer;
+}
+
+.carts__error {
+  color: red;
+  padding-bottom: 25px;
+}
+
+.hide {
+  display: none;
 }
 
 @media(max-width: 768px) {

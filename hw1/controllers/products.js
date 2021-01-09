@@ -1,18 +1,18 @@
 const db = require('../models')
 Products = db.Products
 
-const productsController = {
 
-menu: ((req, res) => {
-  Products.findAll({
-    order: [
-      ['id', 'DESC']
-    ]
-  }).then(products => {
-    res.render('menu', {
-      products
+const productsController = {
+  menu: ((req, res) => {
+    Products.findAll({
+      order: [
+        ['id', 'DESC']
+      ]
+    }).then(products => {
+      res.render('menu', {
+        products,
+      })
     })
-  })
 }),
   
 menuadmin: ((req, res) => {

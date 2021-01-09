@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>餐廳網頁</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+  <style>
+    <%- include('../public/css/style.css')%>
+  </style>
+</head>
+
+<body>
+  <%- include('template/navbar')%>
+  <section class="section">
+    <div class="carts__header">購物清單</div>
+    <div class="carts__info">
+      <table class="carts__table">
+        <tr class="carts__title">
+          <th>#</th>
+          <th>姓名</th>
+          <th>電話</th>
+          <th>商品</th>
+          <th>數量</th>
+          <th>總價格</th>
+          <th>時間</th>
+        </tr>
+        <% for(let i = 0; i < billInfo.length; i++) { %>
+        <% const cartsInfos = JSON.parse(billInfo[i].cartsInfoStr) %>
+        <tr class="carts__order">
+          <td>#</td>
+          <td><%= billInfo[i].billName %></td>
+          <td><%= billInfo[i].phone %></td>
+          <td>
+          <% for(let j = 0; j < cartsInfos.length; j++) {%>
+          <%= cartsInfos[j].name %>
+          <% } %>
+          </td>
+          <td>
+          <% for(let j = 0; j < cartsInfos.length; j++) {%>
+          <%= cartsInfos[j].quantity %>
+          <% } %>
+          </td>
+          <td><%= billInfo[i].totalPrice %></td>
+          <td><%= billInfo[i].createdAt %></td>
+        </tr>
+        <% } %>
+      </table>
+    </div>
+  </section>
+  <%- include('template/footer')%>
+</body>
+
+</html>

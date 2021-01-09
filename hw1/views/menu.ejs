@@ -17,7 +17,8 @@
     <img class="banner__menu-img" src="/images/f-title.png">
   </div>
   <div class="fixed__car">
-    <img class="fixed__img" src="/images/shopping-cart.png">
+    <a href="/carts"><img class="fixed__img" src="/images/shopping-cart.png" ></a>
+    <span class="null counts"></span>
   </div>
   <section class="section">
     <h3 class="section__title">
@@ -60,7 +61,7 @@
       <div class="meal">
         <img class="meal__img" src="<%= product.imgurl %>">
         <div class="meal__intro">
-          <p><%= product.productsname %> | $<%= product.prices%></p>
+          <span class="meal__name"><%= product.productsname %> </span>| $<span class="meal__price"><%= product.prices%></span>
         </div>
         <div class="meal__add-btn">
           加入購物車
@@ -81,4 +82,7 @@
   </section>
   <%- include('template/footer')%>
 </body>
+ <script>
+  <%- include('../public/javascript/menu.js')%>
+  </script>
 </html>

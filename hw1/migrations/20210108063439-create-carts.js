@@ -1,20 +1,29 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('Carts', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
+      cartsInfoStr: {
         type: Sequelize.STRING
       },
-      password: {
+      billName: {
         type: Sequelize.STRING
       },
-      nickname: {
+      phone: {
+        type: Sequelize.STRING
+      },
+      email: {
+        type: Sequelize.STRING
+      },
+      location: {
+        type: Sequelize.STRING
+      },
+      totalPrice: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -28,7 +37,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('Carts');
   }
 };
-//npx sequelize-cli model:generate --name Carts --attributes CartName:string,CartPrice:string
